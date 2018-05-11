@@ -1,0 +1,94 @@
+﻿<Controls:MetroWindow x:Class="PlusFTP.Windows.OptionsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{DynamicResource BMetroWindow}"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="{DynamicResource LangTitleOptions}" Width="500" SizeToContent="Height"
+                      WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.GlowBrush>
+        <SolidColorBrush Color="{DynamicResource AccentColor}" />
+    </Controls:MetroWindow.GlowBrush>
+    <StackPanel Margin="4">
+        <TabControl>
+            <TabItem Header="{DynamicResource LangTabGeneral}">
+                <GroupBox Header="{DynamicResource LangGroupBoxGeneralOptions}">
+                    <StackPanel Margin="4">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{DynamicResource LangLabelLanguage}" FontSize="16" Margin="8,0" Opacity="0.65" />
+                            <ComboBox x:Name="ComboBoxLanguage" FontSize="12" MinWidth="120" MaxDropDownHeight="125">
+                                <ComboBoxItem Tag="ar" Content="{DynamicResource LangComboBoxLanguageArabic}" />
+                                <ComboBoxItem Tag="en" Content="{DynamicResource LangComboBoxLanguageEnglish}" />
+                            </ComboBox>
+                        </StackPanel>
+                        <Controls:ToggleSwitch x:Name="CheckBoxSaveSameLocation" Header="{DynamicResource LangCheckBoxSaveSameLocation}" Padding="0,0,8,0" />
+                        <Controls:ToggleSwitch x:Name="CheckBoxMultiConnection" Header="{DynamicResource LangCheckBoxMultiConnection}" Padding="0,0,8,0" />
+                        <Controls:ToggleSwitch x:Name="CheckBoxCache" Header="{DynamicResource LangCheckBoxCache}" Padding="0,0,8,0" />
+                        <Controls:ToggleSwitch x:Name="CheckBoxCheckVersion" Header="{DynamicResource LangCheckBoxCheckVersion}" Padding="0,0,8,0" />
+                    </StackPanel>
+                </GroupBox>
+            </TabItem>
+            <TabItem Header="{DynamicResource LangTabTransfer}">
+                <GroupBox Header="{DynamicResource LangGroupBoxTransferOptions}">
+                    <StackPanel>
+                        <Controls:ToggleSwitch x:Name="CheckBoxUTF8" Header="{DynamicResource LangCheckBoxUTF8}" Padding="0,0,8,0" />
+                        <Controls:ToggleSwitch x:Name="CheckBoxMODEZ" Header="{DynamicResource LangCheckBoxMODEZ}" Padding="0,0,8,0" />
+                        <DockPanel Margin="4">
+                            <Label Content="{DynamicResource LangLabelDefaultTransferBehaved}" FontSize="16" Opacity="0.65" />
+                            <ComboBox x:Name="ComboBoxDefaultTransferBehaved" Width="125" HorizontalAlignment="Right">
+                                <ComboBoxItem Content="{DynamicResource LangDefaultTransferAsk}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultTransferDoNotTransfer}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultTransferRename}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultTransferReplace}" />
+                            </ComboBox>
+                        </DockPanel>
+                        <DockPanel Margin="4">
+                            <Label Content="{DynamicResource LangLabelDefaultFishedBehaved}" FontSize="16" Opacity="0.65" />
+                            <ComboBox x:Name="ComboBoxDefaultFishedBehaved" Width="125" HorizontalAlignment="Right">
+                                <ComboBoxItem Content="{DynamicResource LangDefaultFishedDisabled}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultFishedCloseWindow}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultFishedCloseApp}" />
+                                <ComboBoxItem Content="{DynamicResource LangDefaultFishedShutdown}" />
+                            </ComboBox>
+                        </DockPanel>
+                    </StackPanel>
+                </GroupBox>
+            </TabItem>
+            <TabItem Header="{DynamicResource LangTabProxy}">
+                <GroupBox Header="{DynamicResource LangGroupBoxProxyServer}">
+                    <StackPanel>
+                        <Controls:ToggleSwitch x:Name="CheckBoxEnableProxy" Header="{DynamicResource LangCheckBoxEnableProxy}" Padding="0,0,6,0" />
+                        <Grid x:Name="StackPanelServer" Margin="4" IsEnabled="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="{DynamicResource LangLabelHost}" />
+                            <Border Margin="{DynamicResource Thickness2}" Grid.Column="1" BorderBrush="#FFE3E3E3" BorderThickness="1" CornerRadius="2">
+                                <TextBox x:Name="TextBoxProxyServer" FlowDirection="LeftToRight" BorderThickness="0" Margin="0" Controls:TextboxHelper.SelectAllOnFocus="True" />
+                            </Border>
+                            <Label Content="{DynamicResource LangLabelPort}" Grid.Column="2" />
+                            <Border Margin="{DynamicResource Thickness2}" Grid.Column="3" BorderBrush="#FFE3E3E3" BorderThickness="1" CornerRadius="2">
+                                <TextBox x:Name="TextBoxProxyPort" FlowDirection="LeftToRight" Width="60" TextAlignment="Center" BorderThickness="0" Margin="0" Controls:TextboxHelper.SelectAllOnFocus="True" />
+                            </Border>
+                        </Grid>
+                        <StackPanel x:Name="StackPanelProxyType" Orientation="Horizontal" Margin="4" IsEnabled="False">
+                            <Label Content="{DynamicResource LangLabelProxyType}" />
+                            <RadioButton GroupName="ProxyType" Content="HTTP" IsChecked="True" x:Name="RadioButtonHttp" />
+                            <!--<RadioButton GroupName="ProxyType" Content="Socks4" IsEnabled="False" x:Name="RadioButtonSocks4" />
+                            <RadioButton GroupName="ProxyType" Content="Socks4a" IsEnabled="False" x:Name="RadioButtonSocks4a" />
+                            <RadioButton GroupName="ProxyType" Content="Socks5" IsEnabled="False" x:Name="RadioButtonSocks5" />-->
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Controls:MetroWindow>

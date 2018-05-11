@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="PlusFTP.Windows.AutoShutdownWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{DynamicResource BMetroWindow}"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" Topmost="True"
+                      Title="{DynamicResource LangTitleAutomaticShutdown}" Width="500" SizeToContent="Height"
+                      WindowStartupLocation="CenterOwner" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.GlowBrush>
+        <SolidColorBrush Color="{DynamicResource AccentColor}" />
+    </Controls:MetroWindow.GlowBrush>
+    <StackPanel>
+        <TextBlock x:Name="TextBlockMessageText" Margin="10" TextWrapping="Wrap" FontSize="{DynamicResource DefaultFontSize2}" />
+        <Border Background="WhiteSmoke">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4">
+                <Button x:Name="ButtonAbort" Content="{DynamicResource LangButtonAbort}" IsCancel="True" IsDefault="True" Click="ButtonAbort_Click" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Controls:MetroWindow>

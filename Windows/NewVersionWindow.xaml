@@ -1,0 +1,30 @@
+﻿<Controls:MetroWindow x:Class="PlusFTP.Windows.NewVersionWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{DynamicResource BMetroWindow}"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="{DynamicResource LangTitleNewVersion}" Width="450" SizeToContent="Height"
+                      Loaded="Window_Loaded" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.GlowBrush>
+        <SolidColorBrush Color="{DynamicResource AccentColor}" />
+    </Controls:MetroWindow.GlowBrush>
+    <StackPanel>
+        <StackPanel Margin="4">
+            <TextBlock Text="{DynamicResource LangTextBlockNewVersionDownload}" Margin="10,10,10,0" FontSize="15" />
+            <TextBlock x:Name="TextBlockCurrentVersion" Controls:TextboxHelper.SelectAllOnFocus="True" Margin="10,5,10,0" FontSize="{DynamicResource DefaultFontSize2}" />
+            <TextBlock x:Name="TextBlockNewVersion" Controls:TextboxHelper.SelectAllOnFocus="True" Margin="10,0,10,10" FontSize="{DynamicResource DefaultFontSize2}" />
+            <Controls:ToggleSwitch x:Name="CheckBoxCheckVersion" Header="{DynamicResource LangCheckBoxCheckVersion}" Margin="10,0" />
+        </StackPanel>
+        <Border Background="WhiteSmoke">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="4">
+                <Button Content="{DynamicResource LangButtonYes}" IsDefault="True" Click="ButtonYes_Click" />
+                <Button Content="{DynamicResource LangButtonNo}" IsCancel="True" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Controls:MetroWindow>

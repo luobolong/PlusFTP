@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <GridView x:Key="DetailListViewBase">
+        <GridViewColumn Width="440">
+            <GridViewColumn.Header>
+                <GridViewColumnHeader Tag="Message">
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Focusable="False" Text="{DynamicResource LangDetailListViewMessage}" TextTrimming="CharacterEllipsis" />
+                        <Label MinWidth="10" Grid.Column="1" />
+                    </Grid>
+                </GridViewColumnHeader>
+            </GridViewColumn.Header>
+            <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                    <TextBlock Foreground="{Binding MColor}" Text="{Binding MText}" TextTrimming="CharacterEllipsis" />
+                </DataTemplate>
+            </GridViewColumn.CellTemplate>
+        </GridViewColumn>
+        <GridViewColumn Width="140">
+            <GridViewColumn.Header>
+                <GridViewColumnHeader Tag="Date">
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Focusable="False" Text="{DynamicResource LangTextDate}" TextTrimming="CharacterEllipsis" />
+                        <Label MinWidth="10" Grid.Column="1" />
+                    </Grid>
+                </GridViewColumnHeader>
+            </GridViewColumn.Header>
+            <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding MDate}" Foreground="{Binding MColor}" TextTrimming="CharacterEllipsis" />
+                </DataTemplate>
+            </GridViewColumn.CellTemplate>
+        </GridViewColumn>
+    </GridView>
+</ResourceDictionary>

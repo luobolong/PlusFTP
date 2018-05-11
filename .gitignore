@@ -1,0 +1,14 @@
+#Visual Studio files
+*.bak
+*.vspscc
+*.vssscc
+*.suo
+*.user
+bin/
+obj/
+
+#App files 
+history
+profile
+settings
+users
